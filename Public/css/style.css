@@ -1,0 +1,59 @@
+body {
+  background-color: white;
+  background-image: linear-gradient(to right, purple, white );
+
+  min-height:1000px;
+}
+
+.container {
+  background-color: white;
+  position:absolute;
+  top:50%;
+  left:40%;
+  border:2px solid blue;
+  border-radius: 20px;
+  padding:10px 20px;
+  backgroud-color:white;
+  width:450px;
+  height: auto;
+  display: flex;
+  font-size: 130%;
+  line-height: 10%;
+
+}
+.header {
+  background-color: violet;
+  padding:10px 20px;
+  text-align: center;
+
+  width:450px;
+  height:70px;
+  border:2px solid purple;
+  border-radius: 25px;
+
+  position:absolute;
+  top:35%;
+  left: 40%;
+
+}
+.ckeck {
+  position:relative;
+  top:-32px;
+  left:-15px;
+
+}
+p {
+  position:relative;
+  top:3px;
+  left:15px;
+
+}
+button {
+  width:50px;
+  height: 50px;
+  border:none;
+  border-radius: 50px;
+  background-color: violet;
+  font-size: 20px;
+  font-weight: bold;
+}

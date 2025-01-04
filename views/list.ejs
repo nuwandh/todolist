@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List V_2</title>
+    <link rel="stylesheet" href="css/style.css">
+
+
+
+
+    
+</head>
+<body>
+
+    <div class="header">
+        <h1><%= Date%></h1>
+    </div>
+    <div class="container">
+
+        <div class="list">
+            
+           <% itemLoop.forEach((items)=>{ %>
+                <p><%= items.task %></p>
+
+                <form action="/delete" method="post">
+                <input type="checkbox" onchange="this.form.submit()" name="delete" value="<%= items.task %>">
+                    <input type="hidden" name="checkboxList" value="<%= Date %>">
+
+            </form>
+
+
+           <% }) %>
+
+           <form action="/" method="post">
+            <input type="text" name="newTask" autocomplete="off" >
+            
+            <button type="submit" value="<%= Date %>" name="findTheList">+</button>
+           </form>
+
+        </div>
+    </div>
+    
+</body>
+</html>
