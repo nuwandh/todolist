@@ -14,7 +14,7 @@ style="
         <div class="card-header">
           <ul class="nav nav-pills card-header-pills">
             <li class="nav-item " >
-              <a class="nav-link " id="ss1" href="/">Home</a>
+              <a class="nav-link " id="ss1" href="/">To day</a>
             </li>
             <li class="nav-item" >
               <a class="nav-link" id="ss2" href="/work">Work</a>
@@ -22,10 +22,16 @@ style="
             <li class="nav-item " >
               <a class="nav-link " id="ss3" href="/exercise">Exercise</a>
             </li>
+            <li>
+                <p class="text-info col-sm-right mytask">Just <%= tofinish %> </p>
+            </li>
+            
           </ul>
         </div>
         <div class="card-body">
+            
           <h1 class="card-title text-success"><%= Date%></h1>
+         
           <p class="">  <% itemLoop.forEach((items)=>{ %>
             <form action="/delete" method="post">
                 <div class="form-check">
@@ -39,9 +45,10 @@ style="
 
            <% }) %>
            <form action="/" method="post">
-            <input type="text" name="newTask" autocomplete="off" class="form-outline mytext" >
+            <input type="text" name="newTask" autocomplete="off" class="form-outline mytext" placeholder="Add New task" >
             
-            <button id="addbutton" class="mybutton shadow p-3 mb-5" type="submit" value="<%= Date %>" name="findTheList">+</button>
+            <button id="addbutton" class="mybutton shadow p-3 mb-5 float-sm-bottom" type="submit" value="<%= Date %>" name="findTheList">+</button>
+          
            </form>
         </p>
         </div>

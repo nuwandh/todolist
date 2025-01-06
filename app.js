@@ -55,8 +55,8 @@ console.log("This line has executed!!")
    
 
   }else{
-
-    res.render("list",{Date:toDay, itemLoop:insideTask});
+    console.log("to finish"+checking.length)
+    res.render("list",{Date:toDay, itemLoop:insideTask, tofinish:checking.length});
   }
   
 });
@@ -78,8 +78,8 @@ app.get("/:customPage", async function (req,res){
 
     }else{
 
-
-        res.render("list",{Date:_.capitalize(requtPage), itemLoop:customItem.customTask});
+        const taskCount = customItem.customTask.length;
+        res.render("list",{Date:_.capitalize(requtPage), itemLoop:customItem.customTask, tofinish:taskCount});
     }
 
        

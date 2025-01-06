@@ -82,15 +82,16 @@ mm*/
 .mybutton {
   position: relative;
   left: 80%;
+  top:5px;
 
 
-  margin: 2px 5px;
+  margin: 2px 10px;
   background-color:#00FFFF;
   text-align: center;
   text-align: justify;
   color: white;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
  padding: 0;
   border: 0;
   border-radius: 50%;
@@ -105,13 +106,21 @@ mm*/
   color: white;
 }
 .mytext {
+  width: 135px;
   position: relative;
-  top:18px;
-  left:40px;
+  top:50px;
+  left:0;
   bottom: 8px;
-  border-radius: 5px;
-  margin: 2px 5px;
+ 
+  border-radius: 10px;
+  margin: 2px 30px;
 }
 .clicked {
   background-color: blue;
+}
+.mytask {
+  position:relative;
+  top:10px;
+  right: 0;
+  
 }
