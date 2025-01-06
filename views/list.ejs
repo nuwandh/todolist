@@ -1,20 +1,26 @@
 
 <%- include("partials/header"); -%>
 
+<div
+class="look"
+style="
+  background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.webp');
   
+"
+>
     
-
+</div>
     <div class="card text-center position-absolute top-50 start-50 translate-middle shadow-lg p-3 mb-5 bg-body rounded">
         <div class="card-header">
           <ul class="nav nav-pills card-header-pills">
-            <li class="nav-item">
-              <a class="nav-link active" href="/">Home</a>
+            <li class="nav-item " >
+              <a class="nav-link " id="ss1" href="/">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/work">Work</a>
+            <li class="nav-item" >
+              <a class="nav-link" id="ss2" href="/work">Work</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link " href="/exersice">Exersice</a>
+            <li class="nav-item " >
+              <a class="nav-link " id="ss3" href="/exercise">Exercise</a>
             </li>
           </ul>
         </div>
@@ -33,13 +39,14 @@
 
            <% }) %>
            <form action="/" method="post">
-            <input type="text" name="newTask" autocomplete="off" class="form-control-lg" >
+            <input type="text" name="newTask" autocomplete="off" class="form-outline mytext" >
             
-            <button class="btn btn-info rounded" type="submit" value="<%= Date %>" name="findTheList">+</button>
+            <button id="addbutton" class="mybutton shadow p-3 mb-5" type="submit" value="<%= Date %>" name="findTheList">+</button>
            </form>
         </p>
         </div>
         <div class="card-footer text-muted"> "What you do today can improve all your tomorrows." – Ralph Marston
+            <p>&copy; 2025 Nuwan. All rights reserved.</p>
         </div>
         </div>
       
