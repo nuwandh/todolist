@@ -43,11 +43,11 @@ app.get("/",async function(req, res){
 
     const checking = await Item.find({});
   if(checking.length ===0){
-console.log("This line has executed!!")
+// console.log("This line has executed!!")
     const docs1 = await Item.insertMany([
-        {task:"Get Up!"},
-        {task:"Brush Teeth"},
-        {task:"Bathing"}
+        {task:"Eat"},
+        {task:"Sleep"},
+        {task:"Walk"}
     ]);
     
    
@@ -55,7 +55,7 @@ console.log("This line has executed!!")
    
 
   }else{
-    console.log("to finish"+checking.length)
+    // console.log("to finish"+checking.length)
     res.render("list",{Date:toDay, itemLoop:insideTask, tofinish:checking.length});
   }
   
@@ -66,15 +66,42 @@ app.get("/:customPage", async function (req,res){
     const requtPage = req.params.customPage;
     const customItem = await List.findOne({name:_.lowerCase(requtPage)});
     if(!customItem){
-        const newList = new List({
-            name:_.lowerCase(requtPage),
-            customTask:[{task:"Get Up!"},
-                {task:"Brush Teeth"},
-                {task:"Bathing"}]
-        });
-        await newList.save();
-        console.log("List created!!")
-        res.redirect("/"+_.lowerCase(requtPage));
+        switch(requtPage){
+            case "exercise":
+                const newList1 = new List({
+                    name:_.lowerCase(requtPage),
+                    customTask:[{task:"Eat a light snack"},
+                        {task:"Warm up or stretch"}]
+                });
+                await newList1.save();
+                // console.log("List created!!")
+                res.redirect("/"+_.lowerCase(requtPage));
+                break;
+
+            case "work":
+                const newList2 = new List({
+                    name:_.lowerCase(requtPage),
+                    customTask:[{task:"Eat a healthy breakfast"},
+                        {task:"Pack your work essentials"}]
+                });
+                await newList2.save();
+               // console.log("List created!!")
+                res.redirect("/"+_.lowerCase(requtPage));
+                break;
+
+                default:
+                    const newList3 = new List({
+                        name:_.lowerCase(requtPage),
+                        customTask:[{task:"Eat"},
+                            {task:"Sleep"},
+                            {task:"walk"}]
+                    });
+                    await newList3.save();
+                    // console.log("List created!!")
+                    res.redirect("/"+_.lowerCase(requtPage));
+
+        }
+       
 
     }else{
 
@@ -132,6 +159,15 @@ app.post("/delete", async function(req,res){
         {$pull:{customTask:{task:req.body.delete}}}
 
        )
+       const xxx = await List.findOne({name:_.lowerCase(req.body.checkboxList)});
+    //    console.log(xxx.customTask.length)
+
+       if(xxx.customTask.length===0){
+        await List.findOneAndDelete({name:_.lowerCase(req.body.checkboxList)});
+       }
+    //    if(await List.findOne({name:_.lowerCase(req.body.checkboxList)}).customTask.length===0){
+    //     await List.findByIdAndDelete({name:_.lowerCase(req.body.checkboxList)});
+    //    }
         res.redirect("/"+_.lowerCase(req.body.checkboxList))
     }
    
