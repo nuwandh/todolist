@@ -1,11 +1,11 @@
 
 <%- include("partials/header"); -%>
 
-    <div class="header container ">
-        <h1 ><%= Date%></h1>
-    </div>
+  
     <div class="container">
-
+        <div class="header container ">
+            <h1 ><%= Date%></h1>
+        </div>
         <div class="list">
             
            <% itemLoop.forEach((items)=>{ %>
@@ -24,7 +24,7 @@
            <form action="/" method="post">
             <input type="text" name="newTask" autocomplete="off" >
             
-            <button type="submit" value="<%= Date %>" name="findTheList">+</button>
+            <button class="btn border fs-2 text" type="submit" value="<%= Date %>" name="findTheList">+</button>
            </form>
 
         </div>
