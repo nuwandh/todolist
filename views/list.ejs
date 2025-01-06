@@ -2,17 +2,29 @@
 <%- include("partials/header"); -%>
 
   
-    <div class="container">
-        <div class="header container ">
-            <h1 ><%= Date%></h1>
+    
+
+    <div class="card text-center position-absolute top-50 start-50 translate-middle shadow-lg p-3 mb-5 bg-body rounded">
+        <div class="card-header">
+          <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/work">Work</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/exersice">Exersice</a>
+            </li>
+          </ul>
         </div>
-        <div class="list">
-            
-           <% itemLoop.forEach((items)=>{ %>
+        <div class="card-body">
+          <h1 class="card-title text-success"><%= Date%></h1>
+          <p class="">  <% itemLoop.forEach((items)=>{ %>
             <form action="/delete" method="post">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="<%= items.task %>" name="delete" id="flexCheckChecked" onchange="this.form.submit()">
-                    <label class="form-check-label" for="flexCheckChecked">
+                    <input class="form-check-input nav-item shadow-lg rounded border border-success fs-2" type="checkbox" value="<%= items.task %>" name="delete" id="flexCheckChecked" onchange="this.form.submit()">
+                    <label class="form-check-label fs-2 text-capitalize" for="flexCheckChecked">
                         <%= items.task %>
                     </label>
                     <input type="hidden" name="checkboxList" value="<%= Date %>">
@@ -20,14 +32,17 @@
                 </form>
 
            <% }) %>
-
            <form action="/" method="post">
-            <input type="text" name="newTask" autocomplete="off" >
+            <input type="text" name="newTask" autocomplete="off" class="form-control-lg" >
             
-            <button class="btn border fs-2 text" type="submit" value="<%= Date %>" name="findTheList">+</button>
+            <button class="btn btn-info rounded" type="submit" value="<%= Date %>" name="findTheList">+</button>
            </form>
-
+        </p>
         </div>
-    </div>
+        <div class="card-footer text-muted"> "What you do today can improve all your tomorrows." – Ralph Marston
+        </div>
+        </div>
+      
     
     <%- include("partials/footer"); -%>
+    
