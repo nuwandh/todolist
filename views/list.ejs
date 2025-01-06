@@ -9,14 +9,15 @@
         <div class="list">
             
            <% itemLoop.forEach((items)=>{ %>
-                <p><%= items.task %></p>
-
-                <form action="/delete" method="post">
-                <input type="checkbox" onchange="this.form.submit()" name="delete" value="<%= items.task %>">
+            <form action="/delete" method="post">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="<%= items.task %>" name="delete" id="flexCheckChecked" onchange="this.form.submit()">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        <%= items.task %>
+                    </label>
                     <input type="hidden" name="checkboxList" value="<%= Date %>">
-
-            </form>
-
+                  </div>
+                </form>
 
            <% }) %>
 
